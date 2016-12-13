@@ -21,13 +21,13 @@
 #information-container {
     display: none;
     position: fixed;
-    overflow: scroll !important;
-    max-height: 100vh !important; // Ugh, bad practice, but here we are
+    overflow-y: scroll !important;
+    max-height: 100% !important; // Ugh, bad practice, but here we are
 
     padding: 1em;
     margin: 2em;
     font-family: Monospace;
-    font-size: 2em;
+    font-size: 1.6em;
     color: #2EAFAC;
     background-color: #444;
 
@@ -37,5 +37,11 @@
         &:visited {
             color: white;
         }
+    }
+}
+
+@media (min-width: 800px) {
+    #information-container {
+        // font-size: 2em;
     }
 }
