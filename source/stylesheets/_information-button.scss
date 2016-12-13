@@ -1,0 +1,41 @@
+#information {
+    position: fixed;
+
+    bottom: 0.8em;
+    left: 0.8em;
+    background-color: #333;
+    color: white;
+    font-family: monospace;
+    border-radius: 50%;
+
+    $font-size: 2em;
+    font-size: $font-size;
+    height: $font-size - .5em;
+    width: $font-size - .5em;
+    text-align: center;
+
+    user-select: none; // Remove the ability to highlight the little "i"
+    cursor: pointer; // make the cursor a little hand!
+}
+
+#information-container {
+    display: none;
+    position: fixed;
+    overflow: scroll !important;
+    max-height: 100vh !important; // Ugh, bad practice, but here we are
+
+    padding: 1em;
+    margin: 2em;
+    font-family: Monospace;
+    font-size: 2em;
+    color: #2EAFAC;
+    background-color: #444;
+
+    a {
+        color: white;
+
+        &:visited {
+            color: white;
+        }
+    }
+}

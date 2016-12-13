@@ -1,0 +1,39 @@
+// Ironically, this is actually good for, like, all screen sizes as responsive technique??? So, yeah:
+img.inner:not(.planet) {
+    // clip: rect(320px, 0px, 960px, 800px);
+    min-height: 100%;
+    // transform: translateX(-50%);
+    object-fit: cover;
+    object-position: bottom;
+    // max-width: 640px;
+    max-width: 100%;
+}
+
+@media (min-width: 800px) {
+    $big-left: 10vw;
+    .title-text {
+        font-size: 10vw;
+        left: $big-left;
+    }
+
+    .byline {
+        font-size: 5vw;
+        left: $big-left;
+    }
+}
+
+// @media (max-width: 800px) {
+//     // img.inner:not(.planet) {
+//     //     // clip: rect(320px, 0px, 960px, 800px);
+//     //     min-height: 100%;
+//     //     // transform: translateX(-50%);
+//     //     object-fit: cover;
+//     //     object-position: bottom;
+//     //     // max-width: 640px;
+//     //     max-width: 100%;
+//     // }
+// }
+
+// body {
+//     font-size: 10px;
+// }

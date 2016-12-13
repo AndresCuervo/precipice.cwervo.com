@@ -1,0 +1,147 @@
+@charset "utf-8";
+@import "glitch";
+
+#showFour {
+    position: fixed;
+    top: 0;
+    left: 50%;
+}
+
+$base-bg: #373B44;
+$alternate-bg: lighten($base-bg, 50%);
+
+section.full {
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background-color: $base-bg;
+    overflow: hidden;
+    position: relative;
+
+    &:nth-of-type(2n) {
+        background-color: $alternate-bg;
+    }
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .inner{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+/*
+ * This file is NOT needed in order to use skrollr.
+ * The demo uses it and it may help you as well.
+ */
+
+
+html, body {
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+    overflow-x:hidden;
+}
+
+.skrollable {
+    /*
+     * First-level skrollables are positioned relative to window
+     */
+position:fixed;
+
+/*
+ * Skrollables by default have a z-index of 100 in order to make it easy to position elements in front/back without changing each skrollable
+ */
+// z-index:100;
+}
+
+.skrollr-mobile .skrollable {
+    /*
+    May cause issues on Android default browser (see #331 on GitHub).
+     */
+position:absolute;
+}
+
+.skrollable .skrollable {
+    /*
+     * Second-level skrollables are positioned relative their parent skrollable
+     */
+position:absolute;
+}
+
+.skrollable .skrollable .skrollable {
+    /*
+     * Third-level (and below) skrollables are positioned static
+     */
+position:static;
+}
+
+.inner {
+    z-index: -1;
+}
+
+section.full .planet {
+    left: 45%;
+    top: 40%;
+}
+
+#planetTwo {
+    opacity: 0.55;
+}
+
+.stars {
+    animation: 1.2s starGlow ease-in-out infinite;
+}
+
+@keyframes starGlow {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    70% {
+        opacity: 1;
+    }
+}
+
+@mixin text-left() {
+    left: 5vw;
+}
+
+.title-text {
+    @include text-left;
+    margin-top: 10vw;
+    font-size: 20vw;
+    @include textGlitch("title-text", 17, #2EAFAC, rgba(10,10,10,0.2), red, blue, 525, 415);
+}
+
+.byline {
+    z-index: 1;
+    display: block;
+    position: absolute;
+    @include text-left;
+    font-size: 5vw;
+    font-family: monospace;
+    color: #F8F8F8;
+}
+
+@keyframes upAndDown {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(50px);
+    }
+}
+
+#goDown {
+    display: inline-block;
+    animation: 1s upAndDown cubic-bezier(.54,.31,.82,1.44)  infinite;
+}
+
+@import "mobile";
+@import "tablet";
+@import "information-button";

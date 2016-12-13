@@ -1,0 +1,133 @@
+---
+title: Precipice | A CRWR Capstone
+---
+
+-# %button#showFour{"onclick" => "showFour();"}
+-#   Show three!
+
+<!-- Taken from  https://codepen.io/ckor/pen/lBnxh/-->
+-# %section.full#four{}
+  -# "data-0-end" => "opacity: 0;",}
+  -# %img.inner._2{"src" => "../images/intro/bg.png"}
+%section.full#four{"data-0" => "opacity: 0;",
+  "data-2000" => "opacity: 1;" }
+  %img.inner.tablet{"src" => "../images/tablet/tablet.png"}
+  %img.inner.tablet{"src" => "../images/tablet/face_test.gif"}
+  %img.inner.tablet.tablet-frame{"src" => "../images/tablet/tablet_frame.png"}
+
+%section.full#three{"data-0" => "opacity: 0;",
+  "data-1500" => "opacity: 1;",
+  "data-2000" => "opacity: 0"}
+  -# "data-1550" => "opacity: 0;"}
+  -# %h1
+  -#   See the
+  -#   %a{:href => "http://caniuse.com/#feat=viewport-units"} browser support.
+  -# %svg{"width" => "620", "height" => "100"}
+  -#   %text{"x" => "30",
+  -#   "y" => "90",
+  -#   "fill" => "#ED6E46",
+  -#   "font-size" => "100",
+  -#   "font-family" => "cursive"}
+  -#     Watermelon
+  %h1
+    Oh, hello
+  %img.inner{"src" => "../images/intro/cave.png"}
+  %img.inner#cave-overlay{ "src" => "../images/intro/cave-overlay.svg"}
+
+
+%section.full#two{"data-0" => "opacity: 0;",
+  "data-500" => "opacity: 1;",
+  "data-1000" => "opacity: 1;",
+  "data-1050" => "opacity: 0;"}
+  -# ===== Bg ======
+  %img.inner{"src" => "../images/intro/bg.png"}
+  -# ===== Planet ======
+  %img.inner.planet#planetTwo{ "data-500" => "transform: rotate(180deg) scale(1.5); opacity: 0.9;",
+  "src" => "../images/intro/planet.png"}
+  -# ===== Atmosphere ======
+  %img.inner.atmoLeft{"src" => "../images/intro/atmosphere-left.png",
+    "data-500" => "transform: translateX(0%);",
+    "data-1000" => "transform: translateX(-50vw);"}
+  %img.inner.atmoRight{"src" => "../images/intro/atmosphere-right.png",
+    "data-500" => "transform: translateX(0%);",
+    "data-1000" => "transform: translateX(50vw);"}
+
+%section.full#one{"data-0" => "opacity: 1;", "data-500" => "opacity: 0;"}
+  %img.inner{"src" => "../images/intro/bg.png"}
+  %img.inner.planet#planetOne{ "data-0" => "transform: rotate(0deg) scale(1); opacity: 0.7;",
+  "data-500"=>"transform: rotate(180deg) scale(2.5); opacity: 1;",
+  "src" => "../images/intro/planet.png"}
+  %img.inner.stars{ "data-0" => "transform: scale(1); opacity: 0.3;",
+  "data-250" => "transform: scale(1.5); opacity: 1;",
+  "data-500" => "transform: scale(2.5); opacity: 0.5;",
+  "data-550" => "transform: scale(2.5); opacity: 0;",
+  "src" => "../images/intro/stars.png"}
+  .title-text{"data-text" => "Precipice"}
+    Precipice
+  .byline
+    by Andres Cuervo
+    %br
+    %span
+      (hint: scroll down
+    #goDown
+      ⇩
+    %span
+      )
+  -# %svg{"width" => "620", "height" => "160", "style" => "z-index: 1; display: block; position: absolute; top: 4.5em;"}
+  -#   %text{"x" => "30",
+  -#   "y" => "120",
+  -#   "fill" => "#F8F8F8",
+  -#   "font-size" => "50",
+  -#   "font-family" => "monospace"}
+  -#     by Andres Cuervo
+
+%section#information-container
+  This is a website by
+  %a{ :href => "http://cwervo.com/" }
+    Andres Cuervo,
+  made as a Creative Writing capstone project for Oberlin College, under the
+  supervision of
+  %a{ :href => "http://danchaon.com/" }
+    Dan Chaon.
+  It's meant to explore a visual narrative of a distant planet fallen into ruin.
+  It's still under construction, but I hope you have fun exploring it!
+
+%a#information{:src => "", :onclick => "toggleInfo();"}
+  i
+
+%section.three-button{ "data-1500" => "opacity: 1;" }
+  %span#cave-text{"onclick" => "goToTablet()"}
+    Tablet
+
+:javascript
+  skrollr.init();
+  //skrollr.init({
+  //  forceHeight: false;
+  //    });
+
+  function showFour() {
+    var elFour = document.getElementById("four");
+    var elDisplay = elFour.style.display;
+    if (elDisplay == "none") {
+      elFour.style.display = "block";
+    } else {
+      elFour.style.display = "none";
+    }
+  }
+
+  function toggleInfo() {
+    var el = document.getElementById("information-container");
+    var elDisplay = el.style.display;
+    // console.log("clicked, and information-container's display is: " + elDisplay);
+    if (elDisplay !== "block") {
+      el.style.display = "block";
+    } else {
+      el.style.display = "none";
+    }
+    // console.log("set it to:" + el.style.display);
+  }
+
+  function goToTablet() {
+    // 2000 is where the tablet frame starts
+    window.scrollBy(0, (2000 - window.scrollY));
+  }
